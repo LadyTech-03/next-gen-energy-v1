@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "NextGen Energy Innovators Challenge",
     template: "%s | NextGen Energy Innovators Challenge",
   },
-  description: "Production-ready starter for the NextGen Energy Innovators Challenge platform.",
+  description: "The NextGen Energy Innovators Challenge is a university-industry partnership program hosted by the Department of Petroleum Engineering at KNUST, focused on accelerating fuel and forecourt innovation in Ghana.",
 };
 
 export default function RootLayout({
