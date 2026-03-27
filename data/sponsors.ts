@@ -5,6 +5,7 @@ export type SponsorItem = {
   width: number;
   height: number;
   isPrimary?: boolean;
+  website: string;
 };
 
 const defaultSponsors2026: SponsorItem[] = [
@@ -15,6 +16,7 @@ const defaultSponsors2026: SponsorItem[] = [
     width: 360,
     height: 158,
     isPrimary: true,
+    website: "https://www.vivoenergy.com",
   },
   {
     id: "knust",
@@ -22,6 +24,7 @@ const defaultSponsors2026: SponsorItem[] = [
     logo: "/images/knust.svg",
     width: 320,
     height: 154,
+    website: "https://www.knust.edu.gh",
   },
   {
     id: "next-gen-energy",
@@ -29,6 +32,7 @@ const defaultSponsors2026: SponsorItem[] = [
     logo: "/images/logo.svg",
     width: 320,
     height: 140,
+    website: "https://www.nextgenenergychallenge.com",
   },
   {
     id: "innovation-centre-knust",
@@ -36,14 +40,24 @@ const defaultSponsors2026: SponsorItem[] = [
     logo: "/images/hub.svg",
     width: 320,
     height: 154,
+    website: "https://coeic.knust.edu.gh",
   },
-  // {
-  //   id: "college-of-engineering",
-  //   name: "College of Engineering",
-  //   logo: "/images/college-of-engineering.svg",
-  //   width: 320,
-  //   height: 154,
-  // },
+  {
+    id: "flowscope",
+    name: "FlowScope",
+    logo: "/images/flowscope.svg",
+    width: 320,
+    height: 154,
+    website: "https://www.flowscoperesearch.com/",
+  },
+  {
+    id: "department-of-petroleum-engineering-knust",
+    name: "Department of Petroleum Engineering, KNUST",
+    logo: "/images/dep.svg",
+    width: 320,
+    height: 154,
+    website: "https://petrol.knust.edu.gh",
+  },
 ];
 
 export const challengeSponsorsByYear: Record<number, SponsorItem[]> = {

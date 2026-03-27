@@ -14,7 +14,7 @@ const defaultUpdates2026: UpdatePost[] = [
     date: "2026-03-25",
     excerpt:
       "Student teams can now submit their registration details and project focus areas for the first review stage.",
-    image: "/images/shepower_knust-020.jpg",
+    image: "/images/shepower_knust-120.jpg",
     content: `## Registration is now live
 
 Team registration for the **NextGen Energy Innovators Challenge 2026** is officially open.
@@ -35,7 +35,7 @@ After registration closes, shortlisted teams will receive orientation details an
     date: "2026-03-20",
     excerpt:
       "Technical mentors and faculty advisors have received the onboarding schedule for team support and review milestones.",
-    image: "/images/shepower_knust-015.jpg",
+    image: "/images/shepower_knust-167.jpg",
     content: `## Mentor orientation schedule published
 
 The secretariat has published mentor orientation sessions for academic and industry facilitators.
@@ -54,7 +54,7 @@ Mentors should confirm attendance for the first briefing slot to ensure synchron
     date: "2026-03-13",
     excerpt:
       "The 2026 edition has officially launched with six problem themes focused on practical fuel and forecourt innovation.",
-    image: "/images/shepower_knust-142.jpg",
+    image: "/images/shepower_knust-136.jpg",
     content: `## Official launch announcement
 
 The <u>**[NextGen Energy Innovators Challenge 2026](https://docs.google.com/forms/d/e/1FAIpQLSdzmBDWMpf5ViwiYkFtvLGO6mut8OcfWpFB00pWewz0RhLXgA/viewform?usp=header)**</u> has launched with six thematic tracks covering transit monitoring, forecourt intelligence, and consumer digital platforms.

@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { SectionHeading } from "@/components/sections/section-heading";
 import { type SponsorItem, getChallengeSponsors } from "@/data/sponsors";
+import Link from "next/link";
 
 type SponsorsSectionProps = {
   year?: number;
@@ -45,7 +46,8 @@ export function SponsorsSection({ year = 2026, items }: SponsorsSectionProps) {
               aria-hidden="true"
             />
 
-            <div className="relative flex min-h-40 items-center sm:min-h-48">
+            <div className="relative flex min-h-40 items-center sm:min-h-48 hover:-translate-y-1 transition-transform duration-300">
+              <Link href={primarySponsor.website} target="_blank">
               <Image
                 src={primarySponsor.logo}
                 alt={`${primarySponsor.name} logo`}
@@ -54,6 +56,7 @@ export function SponsorsSection({ year = 2026, items }: SponsorsSectionProps) {
                 className="object-contain object-left drop-shadow-[0_10px_20px_rgba(15,23,42,0.15)]"
                 priority
               />
+              </Link>
             </div>
             <span className="sr-only">{primarySponsor.name}</span>
           </article>
@@ -63,16 +66,18 @@ export function SponsorsSection({ year = 2026, items }: SponsorsSectionProps) {
               {supportingSponsors.map((sponsor) => (
                 <li
                   key={sponsor.id}
-                  className="group bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_14px_24px_rgba(30,64,175,0.14)]"
+                  className="group bg-white p-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_14px_24px_rgba(30,64,175,0.14)]"
                 >
-                  <div className="relative h-16 w-full sm:h-20">
-                    <Image
-                      src={sponsor.logo}
-                      alt={`${sponsor.name} logo`}
-                      fill
-                      sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 15vw"
-                      className="object-contain saturate-[1.05] transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
+                  <div className="relative h-16 w-full sm:h-20 rounded-xl">
+                    <Link href={sponsor.website} target="_blank">
+                      <Image
+                        src={sponsor.logo}
+                        alt={`${sponsor.name} logo`}
+                        fill
+                        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 15vw"
+                        className="object-contain saturate-[1.05] transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                    </Link>
                   </div>
                   <span className="sr-only">{sponsor.name}</span>
                 </li>

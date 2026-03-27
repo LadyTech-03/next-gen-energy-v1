@@ -91,7 +91,7 @@ export default async function UpdateDetailsPage({ params }: UpdatePageProps) {
       </section>
 
       <article className="mx-auto w-full max-w-5xl px-6 py-10 lg:py-14">
-        <div className="border-border/70 relative mb-8 h-72 w-full overflow-hidden rounded-lg border sm:h-96">
+        <div className="border-border/70 relative mb-8 h-72 w-full overflow-hidden rounded-lg border sm:h-128">
           <Image
             src={update.image}
             alt={update.title}

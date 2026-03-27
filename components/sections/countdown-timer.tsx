@@ -9,7 +9,7 @@ type TimeLeft = {
   seconds: number;
 };
 
-const DEFAULT_TARGET_DATE = "2026-09-15T12:00:00Z";
+const DEFAULT_TARGET_DATE = "2026-03-29T17:00:00Z";
 const EMPTY_TIME_LEFT: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
 function getTargetDate() {
