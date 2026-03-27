@@ -1,0 +1,9 @@
+.next
+node_modules
+nextgen-energy-site
+out
+build
+coverage
+*.lock
+planning.md
+Uncodixfy.md

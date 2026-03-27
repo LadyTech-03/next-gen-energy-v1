@@ -1,0 +1,23 @@
+:root {
+  --energy-primary-900: #081431;
+  --energy-primary-700: #0a2a66;
+  --energy-primary-500: #1e67d8;
+  --energy-primary-300: #9fbde9;
+  --energy-accent-yellow: #f4b400;
+  --energy-accent-glow: #2f8fff;
+  --energy-neutral-900: #0f172a;
+  --energy-neutral-600: #475569;
+  --energy-neutral-300: #d7dfeb;
+}
+
+@theme inline {
+  --color-primary-900: var(--energy-primary-900);
+  --color-primary-700: var(--energy-primary-700);
+  --color-primary-500: var(--energy-primary-500);
+  --color-primary-300: var(--energy-primary-300);
+  --color-accent-yellow: var(--energy-accent-yellow);
+  --color-accent-glow: var(--energy-accent-glow);
+  --color-neutral-900: var(--energy-neutral-900);
+  --color-neutral-600: var(--energy-neutral-600);
+  --color-neutral-300: var(--energy-neutral-300);
+}
