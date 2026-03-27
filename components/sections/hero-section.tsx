@@ -68,7 +68,8 @@ export function HeroSection({ videoSrc = "/videos/hero.mp4" }: HeroSectionProps)
 
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link
-              href="#register"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdzmBDWMpf5ViwiYkFtvLGO6mut8OcfWpFB00pWewz0RhLXgA/viewform?usp=header"
+              target="_blank"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-accent-yellow hover:bg-accent-yellow/90 h-10 px-5 font-semibold text-neutral-900",

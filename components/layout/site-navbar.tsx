@@ -205,7 +205,8 @@ export function SiteNavbar() {
 
         <div className="hidden md:block">
           <Link
-            href={pathname === "/" ? "#register" : "/#register"}
+            href={`https://docs.google.com/forms/d/e/1FAIpQLSdzmBDWMpf5ViwiYkFtvLGO6mut8OcfWpFB00pWewz0RhLXgA/viewform?usp=header`}
+            target="_blank"
             onClick={(event) => handleSectionClick(event, "register")}
             className="bg-accent-yellow hover:bg-accent-yellow/90 focus-visible:ring-accent-yellow inline-flex h-9 items-center rounded-md px-4 text-sm font-semibold text-neutral-900 transition-colors focus-visible:ring-2 focus-visible:outline-none"
             aria-label="Register now"
