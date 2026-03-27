@@ -47,7 +47,7 @@ export function HeroSection({ videoSrc = "/videos/hero.mp4" }: HeroSectionProps)
       </video>
 
       <div
-        className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-black/75"
+        className="absolute inset-0 bg-linear-to-b from-black/60 via-black/35 to-black/65"
         aria-hidden="true"
       />
 
