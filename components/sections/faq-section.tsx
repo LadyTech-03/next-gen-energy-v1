@@ -27,7 +27,7 @@ export function FaqSection({ year = 2026 }: FaqSectionProps) {
             className="mb-8"
           />
 
-          <div className="rounded-lg border border-white/20 bg-white/[0.05] p-5 sm:p-6">
+          <div className="rounded-lg border border-white/20 bg-white/5 p-5 sm:p-6">
             <Accordion>
               {faqs.map((faq) => (
                 <AccordionItem key={faq.id} value={faq.id}>
