@@ -42,7 +42,7 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div className="space-y-4 lg:col-span-2">
             <Image
-              src="/images/logo.svg"
+              src="/images/logo_white.png"
               alt="NextGen Energy Innovators Challenge Logo"
               width={120}
               height={120}

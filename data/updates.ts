@@ -57,7 +57,7 @@ Mentors should confirm attendance for the first briefing slot to ensure synchron
     image: "/images/shepower_knust-136.jpg",
     content: `## Official launch announcement
 
-The <u>**[NextGen Energy Innovators Challenge 2026](https://docs.google.com/forms/d/e/1FAIpQLSdzmBDWMpf5ViwiYkFtvLGO6mut8OcfWpFB00pWewz0RhLXgA/viewform?usp=header)**</u> has launched with six thematic tracks covering transit monitoring, forecourt intelligence, and consumer digital platforms.
+The <a href="https://example.com/challenge-2026" target="_blank" rel="noopener noreferrer">**NextGen Energy Innovators Challenge 2026**</a> has launched with six thematic tracks covering transit monitoring, forecourt intelligence, and consumer digital platforms.
 
 ### Strategic objective
 

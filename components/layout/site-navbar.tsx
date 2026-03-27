@@ -154,7 +154,7 @@ export function SiteNavbar() {
           aria-label="Go to homepage hero section"
         >
           <Image
-            src="/images/logo.svg"
+            src="/images/logo_white.png"
             alt="Challenge logo"
             width={100}
             height={100}
