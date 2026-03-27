@@ -32,7 +32,7 @@ const defaultSponsors2026: SponsorItem[] = [
     logo: "/images/logo.svg",
     width: 320,
     height: 140,
-    website: "https://www.nextgenenergychallenge.com",
+    website: "https://next-gen-energy-v1.vercel.app/",
   },
   {
     id: "innovation-centre-knust",
