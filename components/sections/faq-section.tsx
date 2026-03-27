@@ -15,7 +15,7 @@ export function FaqSection({ year = 2026 }: FaqSectionProps) {
   const faqs = getChallengeFaqs(year);
 
   return (
-    <section id="faq" className="border-primary-700/60 bg-primary-900 scroll-mt-24 border-b">
+    <section id="faq" className="bg-primary-900 scroll-mt-24">
       <div className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <SectionHeading

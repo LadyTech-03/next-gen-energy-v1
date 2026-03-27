@@ -143,7 +143,7 @@ export function SiteNavbar() {
       className={cn(
         "sticky top-0 z-50 border-none transition-all duration-300",
         (isScrolled || !homePage) &&
-          "bg-primary-900/80 supports-backdrop-filter:bg-primary-900/65 shadow-sm supports-backdrop-filter:backdrop-blur-md",
+          "bg-primary supports-backdrop-filter:bg-primary-900/65 shadow-sm supports-backdrop-filter:backdrop-blur-md",
       )}
     >
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6">
@@ -207,7 +207,6 @@ export function SiteNavbar() {
           <Link
             href={`https://docs.google.com/forms/d/e/1FAIpQLSdzmBDWMpf5ViwiYkFtvLGO6mut8OcfWpFB00pWewz0RhLXgA/viewform?usp=header`}
             target="_blank"
-            onClick={(event) => handleSectionClick(event, "register")}
             className="bg-accent-yellow hover:bg-accent-yellow/90 focus-visible:ring-accent-yellow inline-flex h-9 items-center rounded-md px-4 text-sm font-semibold text-neutral-900 transition-colors focus-visible:ring-2 focus-visible:outline-none"
             aria-label="Register now"
           >
