@@ -33,17 +33,17 @@ const defaultSponsors2026: SponsorItem[] = [
   {
     id: "innovation-centre-knust",
     name: "Innovation Centre, KNUST",
-    logo: "/images/innovation-centre-knust.svg",
+    logo: "/images/hub.svg",
     width: 320,
     height: 154,
   },
-  {
-    id: "college-of-engineering",
-    name: "College of Engineering",
-    logo: "/images/college-of-engineering.svg",
-    width: 320,
-    height: 154,
-  },
+  // {
+  //   id: "college-of-engineering",
+  //   name: "College of Engineering",
+  //   logo: "/images/college-of-engineering.svg",
+  //   width: 320,
+  //   height: 154,
+  // },
 ];
 
 export const challengeSponsorsByYear: Record<number, SponsorItem[]> = {
