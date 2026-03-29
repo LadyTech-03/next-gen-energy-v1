@@ -3,6 +3,7 @@ import { JetBrains_Mono, Manrope } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavbar } from "@/components/layout/site-navbar";
+import { Analytics } from '@vercel/analytics/next';
 
 import "./globals.css";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
         <SiteNavbar />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
