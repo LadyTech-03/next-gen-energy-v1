@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getChallengeUpdates } from "@/data/updates";
-import { trackEvent } from "@/lib/analytics";
+// import { trackEvent } from "@/lib/analytics";
 
 export const metadata: Metadata = {
   title: "Updates",
@@ -74,7 +75,7 @@ export default function UpdatesPage() {
                 <Link
                   href={`/updates/${update.slug}`}
                   className="text-primary-700 hover:text-primary-500 focus-visible:ring-primary-500 text-sm font-semibold focus-visible:ring-2 focus-visible:outline-none"
-                  onClick={() => { trackEvent('read_more_up_click', { button: update.title}) }}
+                  // onClick={() => { trackEvent('read_more_up_click', { button: update.title}) }}
                 >
                   Read More
                 </Link>

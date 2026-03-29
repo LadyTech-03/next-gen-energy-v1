@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Building2, Globe, Mail, MessagesSquare, Phone, Rss, Users } from "lucide-react";
 import Image from "next/image";

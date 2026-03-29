@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { getChallengeUpdateBySlug, getChallengeUpdates } from "@/data/updates";
-import { trackEvent } from "@/lib/analytics";
+// import { trackEvent } from "@/lib/analytics";
 
 type UpdatePageProps = {
   params: Promise<{
@@ -67,7 +67,7 @@ export default async function UpdateDetailsPage({ params }: UpdatePageProps) {
             <ol className="flex items-center gap-2">
               <li>
                 <Link href="/" className="hover:text-foreground"
-                  onClick={() => { trackEvent('update_breadcrumb_home_click', { button: 'Home' }) }}
+                  // onClick={() => { trackEvent('update_breadcrumb_home_click', { button: 'Home' }) }}
                 >
                   Home
                 </Link>
@@ -75,7 +75,7 @@ export default async function UpdateDetailsPage({ params }: UpdatePageProps) {
               <li aria-hidden="true">/</li>
               <li>
                 <Link href="/updates" className="hover:text-foreground"
-                  onClick={() => { trackEvent('update_breadcrumb_updates_click', { button: 'Updates' }) }}
+                  // onClick={() => { trackEvent('update_breadcrumb_updates_click', { button: 'Updates' }) }}
                 >
                   Updates
                 </Link>
