@@ -5,6 +5,7 @@ import Link from "next/link";
 import { type MouseEvent, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu } from "lucide-react";
+import { trackEvent } from '@/lib/analytics'
 
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -150,7 +151,10 @@ export function SiteNavbar() {
         <Link
           href={pathname === "/" ? "#hero" : "/#hero"}
           className="font-heading text-sm font-semibold tracking-wide text-white"
-          onClick={(event) => handleSectionClick(event, "hero")}
+          onClick={(event) => {
+            trackEvent('navbar_logo_click', { button: 'logo' })
+            handleSectionClick(event, "hero")
+          }}
           aria-label="Go to homepage hero section"
         >
           <Image
@@ -171,7 +175,7 @@ export function SiteNavbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {setOpen(false); trackEvent('navbar_route_click', { route: item.label })}}
                   className={cn(
                     "focus-visible:ring-accent-yellow rounded-md px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none",
                     isActiveRoute && "bg-white/10 text-white",
@@ -190,7 +194,7 @@ export function SiteNavbar() {
               <Link
                 key={item.sectionId}
                 href={href}
-                onClick={(event) => handleSectionClick(event, item.sectionId)}
+                onClick={(event) => { trackEvent('navbar_route_click', { section: item.sectionId }); handleSectionClick(event, item.sectionId); }}
                 className={cn(
                   "focus-visible:ring-accent-yellow rounded-md px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none",
                   isActive && "bg-white/10 text-white",
@@ -209,6 +213,9 @@ export function SiteNavbar() {
             target="_blank"
             className="bg-accent-yellow hover:bg-accent-yellow/90 focus-visible:ring-accent-yellow inline-flex h-9 items-center rounded-md px-4 text-sm font-semibold text-neutral-900 transition-colors focus-visible:ring-2 focus-visible:outline-none"
             aria-label="Register now"
+            onClick={()=> {
+              trackEvent('navbar_register_click', { button: 'Register' });
+            }}
           >
             Register Now
           </Link>
@@ -246,7 +253,8 @@ export function SiteNavbar() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      onClick={() => setOpen(false)}
+                      onClick={() => {setOpen(false); trackEvent('sheet_route_click', { route: item.label });
+}}
                       className={cn(
                         "focus-visible:ring-accent-yellow rounded-md px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-2 focus-visible:outline-none",
                         isActiveRoute && "bg-white/10 text-white",
@@ -265,7 +273,7 @@ export function SiteNavbar() {
                   <Link
                     key={item.sectionId}
                     href={href}
-                    onClick={(event) => handleSectionClick(event, item.sectionId)}
+                    onClick={(event) => {handleSectionClick(event, item.sectionId); trackEvent('sheet_route_click', {route: item.label})}}
                     className={cn(
                       "focus-visible:ring-accent-yellow rounded-md px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-2 focus-visible:outline-none",
                       isActive && "bg-white/10 text-white",
@@ -279,7 +287,7 @@ export function SiteNavbar() {
 
               <Link
                 href={pathname === "/" ? "#register" : "/#register"}
-                onClick={(event) => handleSectionClick(event, "register")}
+                onClick={(event) => {handleSectionClick(event, "register"); trackEvent('sheet_register_click', {button: 'Register'})}}
                 className="bg-accent-yellow hover:bg-accent-yellow/90 focus-visible:ring-accent-yellow mt-2 inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-semibold text-neutral-900 transition-colors focus-visible:ring-2 focus-visible:outline-none"
                 aria-label="Register now"
               >

@@ -4,6 +4,8 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { type SponsorItem, getChallengeSponsors } from "@/data/sponsors";
 import Link from "next/link";
 
+import { trackEvent } from '@/lib/analytics'
+
 type SponsorsSectionProps = {
   year?: number;
   items?: SponsorItem[];
@@ -47,7 +49,9 @@ export function SponsorsSection({ year = 2026, items }: SponsorsSectionProps) {
             />
 
             <div className="relative flex min-h-40 items-center sm:min-h-48 hover:-translate-y-1 transition-transform duration-300">
-              <Link href={primarySponsor.website} target="_blank">
+              <Link href={primarySponsor.website} target="_blank"
+              onClick={() => { trackEvent('sponsor_click', { button: primarySponsor.name}) }}
+              >
               <Image
                 src={primarySponsor.logo}
                 alt={`${primarySponsor.name} logo`}
@@ -69,7 +73,10 @@ export function SponsorsSection({ year = 2026, items }: SponsorsSectionProps) {
                   className="group bg-white p-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_14px_24px_rgba(30,64,175,0.14)]"
                 >
                   <div className="relative h-16 w-full sm:h-20 rounded-xl">
-                    <Link href={sponsor.website} target="_blank">
+                    <Link href={sponsor.website} 
+                      onClick={() => { trackEvent('sponsor_click', { button: sponsor.name}) }}
+                      target="_blank"
+                    >
                       <Image
                         src={sponsor.logo}
                         alt={`${sponsor.name} logo`}

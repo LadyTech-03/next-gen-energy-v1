@@ -12,6 +12,8 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { type ThemeItem, getChallengeThemes } from "@/data/themes";
 import { cn } from "@/lib/utils";
 
+import { trackEvent } from '@/lib/analytics';
+
 type ThemesSectionProps = {
   year?: number;
   items?: ThemeItem[];
@@ -53,6 +55,7 @@ export function ThemesSection({ year = 2026, items }: ThemesSectionProps) {
                   <a
                     href={`#theme-${theme.id}`}
                     className="transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
+                    onClick={() => { trackEvent('theme_navigation', { Link: theme.title}) }}
                   >
                     {formatThemeNumber(index)}. {theme.title}
                   </a>

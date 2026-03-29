@@ -5,6 +5,8 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLatestChallengeUpdates } from "@/data/updates";
 
+import { trackEvent } from '@/lib/analytics'
+
 type UpdatesPreviewSectionProps = {
   year?: number;
 };
@@ -33,6 +35,7 @@ export function UpdatesPreviewSection({ year = 2026 }: UpdatesPreviewSectionProp
           <Link
             href="/updates"
             className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary inline-flex h-9 items-center rounded-md px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:outline-none"
+            onClick={() => { trackEvent('view_all_updates_click', { button: 'View All Updates'}) }}
           >
             View All Updates
           </Link>
@@ -65,6 +68,7 @@ export function UpdatesPreviewSection({ year = 2026 }: UpdatesPreviewSectionProp
                 <Link
                   href={`/updates/${update.slug}`}
                   className="text-primary-700 hover:text-primary-500 focus-visible:ring-primary-500 text-sm font-semibold focus-visible:ring-2 focus-visible:outline-none"
+                  onClick={() => { trackEvent('read_update_click', { button: update.title}) }}
                 >
                   Read More
                 </Link>

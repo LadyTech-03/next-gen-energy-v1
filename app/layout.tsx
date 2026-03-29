@@ -3,7 +3,10 @@ import { JetBrains_Mono, Manrope } from "next/font/google";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteNavbar } from "@/components/layout/site-navbar";
+
 import { Analytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 import "./globals.css";
 
@@ -43,6 +46,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <Analytics />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
       </body>
     </html>
   );

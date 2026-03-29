@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Building2, Globe, Mail, MessagesSquare, Phone, Rss, Users } from "lucide-react";
 import Image from "next/image";
+import { trackEvent } from "@/lib/analytics";
 
 const quickLinks = [
   { label: "About", href: "/#about" },
@@ -62,6 +63,7 @@ export function SiteFooter() {
                 href="mailto:mjbedzra@knust.edu.gh"
                 className="focus-visible:ring-accent flex items-center gap-2 rounded-md text-white/85 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none"
                 aria-label="Send email to challenge organizers"
+                onClick={() => { trackEvent('footer_contact_email_click', { button: 'Send Email' }) }}
               >
                 <Mail className="size-4" aria-hidden="true" />
                 mjbedzra@knust.edu.gh
@@ -70,6 +72,7 @@ export function SiteFooter() {
                 href="tel:+233595782508"
                 className="focus-visible:ring-accent flex items-center gap-2 rounded-md text-white/85 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none"
                 aria-label="Call challenge contact number"
+                onClick={() => { trackEvent('footer_contact_phone_click', { button: 'Call Phone' }) }}
               >
                 <Phone className="size-4" aria-hidden="true" />
                 +233 59 578 2508
@@ -85,6 +88,7 @@ export function SiteFooter() {
                   <Link
                     href={link.href}
                     className="focus-visible:ring-accent inline-flex rounded-md text-sm text-white/80 transition-colors hover:text-white focus-visible:ring-2 focus-visible:outline-none"
+                    onClick={() => { trackEvent('footer_quick_link_click', { button: link.label }) }}
                   >
                     {link.label}
                   </Link>
@@ -107,6 +111,7 @@ export function SiteFooter() {
                       href={social.href}
                       aria-label={social.label}
                       className="focus-visible:ring-accent inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/20 bg-white/5 text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-2 focus-visible:outline-none"
+                      onClick={() => { trackEvent('footer_social_link_click', { button: social.label }) }}
                     >
                       <Icon className="size-4" aria-hidden="true" />
                     </Link>
@@ -121,6 +126,7 @@ export function SiteFooter() {
                     rel="noreferrer"
                     aria-label={social.label}
                     className="focus-visible:ring-accent inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/20 bg-white/5 text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-2 focus-visible:outline-none"
+                    onClick={() => { trackEvent('footer_social_link_click', { button: social.label }) }}
                   >
                     <Icon className="size-4" aria-hidden="true" />
                   </a>
