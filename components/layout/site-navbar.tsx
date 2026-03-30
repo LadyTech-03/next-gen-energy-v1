@@ -26,7 +26,7 @@ type SectionNavItem = {
 
 type RouteNavItem = {
   kind: "route";
-  href: "/updates";
+  href: "/timeline" | "/updates";
   label: string;
 };
 
@@ -35,6 +35,7 @@ type NavItem = SectionNavItem | RouteNavItem;
 const navItems: NavItem[] = [
   { kind: "section", sectionId: "about", label: "About" },
   { kind: "section", sectionId: "themes", label: "Themes" },
+  { kind: "route", href: "/timeline", label: "Timeline" },
   { kind: "section", sectionId: "sponsors", label: "Sponsors" },
   { kind: "route", href: "/updates", label: "Updates" },
   { kind: "section", sectionId: "faq", label: "FAQ" },
@@ -162,7 +163,7 @@ export function SiteNavbar() {
             alt="Challenge logo"
             width={100}
             height={100}
-            className="mr-2 inline"
+            className="mr-2 inline w-fit h-auto"
           />
         </Link>
 
@@ -240,7 +241,7 @@ export function SiteNavbar() {
             <SheetHeader>
               <SheetTitle className="text-white">Navigation</SheetTitle>
               <SheetDescription className="text-white/70">
-                Jump to homepage sections or open updates.
+                Jump to homepage sections or open timeline and updates pages.
               </SheetDescription>
             </SheetHeader>
 
@@ -300,5 +301,7 @@ export function SiteNavbar() {
     </header>
   );
 }
+
+
 
 

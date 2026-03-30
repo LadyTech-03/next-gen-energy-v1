@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Building2, Globe, Mail, MessagesSquare, Phone, Rss, Users } from "lucide-react";
+import { Globe, Mail, MessagesSquare, Phone, Rss, Users } from "lucide-react";
 import Image from "next/image";
 import { trackEvent } from "@/lib/analytics";
 
@@ -9,6 +9,7 @@ const quickLinks = [
   { label: "About", href: "/#about" },
   { label: "Themes", href: "/#themes" },
   { label: "Sponsors", href: "/#sponsors" },
+  { label: "Timeline", href: "/timeline" },
   { label: "Updates", href: "/updates" },
   { label: "FAQ", href: "/#faq" },
 ];
@@ -49,7 +50,7 @@ export function SiteFooter() {
               alt="NextGen Energy Innovators Challenge Logo"
               width={120}
               height={120}
-              className=""
+              className="w-fit h-auto"
             />
 
             <p className="max-w-xl text-sm leading-relaxed text-white/80">
@@ -147,3 +148,7 @@ export function SiteFooter() {
     </footer>
   );
 }
+
+
+
+
