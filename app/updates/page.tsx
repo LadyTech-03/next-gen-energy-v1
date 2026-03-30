@@ -27,7 +27,7 @@ export default function UpdatesPage() {
 
   return (
     <main className="bg-background min-h-screen">
-      <section className="border-border/60 border-b bg-white">
+      <section className="border-primary-700/60 from-primary-900 via-primary-700 to-primary-900 border-b bg-linear-to-b">
         <div className="mx-auto w-full max-w-7xl px-6 py-14 lg:py-18">
           <nav aria-label="Breadcrumb" className="text-muted-foreground mb-5 text-sm">
             <ol className="flex items-center gap-2">

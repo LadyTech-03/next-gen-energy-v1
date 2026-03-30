@@ -239,9 +239,8 @@ export function SiteNavbar() {
           </SheetTrigger>
           <SheetContent side="right" className="bg-primary-900 w-[85vw] max-w-sm text-white">
             <SheetHeader>
-              <SheetTitle className="text-white">Navigation</SheetTitle>
+              <SheetTitle className="text-white">Menu</SheetTitle>
               <SheetDescription className="text-white/70">
-                Jump to homepage sections or open timeline and updates pages.
               </SheetDescription>
             </SheetHeader>
 
