@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   BrainCircuit,
   Database,
@@ -57,13 +58,25 @@ export function ThemesSection({ year = 2026, items }: ThemesSectionProps) {
                   <a
                     href={`#theme-${theme.id}`}
                     className="transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
-                    onClick={() => { trackEvent('theme_navigation', { Link: theme.title}) }}
+                    onClick={() => {
+                      trackEvent("theme_navigation", { Link: theme.title });
+                    }}
                   >
                     {formatThemeNumber(index)}. {theme.title}
                   </a>
                 </li>
               ))}
             </ol>
+
+            <Link
+              href="/timeline"
+              className="focus-visible:ring-accent-yellow mt-6 inline-flex h-9 items-center rounded-md border border-white/30 bg-white/10 px-4 text-sm font-semibold text-white transition-colors hover:bg-white/18 focus-visible:ring-2 focus-visible:outline-none"
+              onClick={() => {
+                trackEvent("themes_timeline_click", { button: "View Timeline" });
+              }}
+            >
+              View Timeline
+            </Link>
           </div>
 
           <div className="lg:col-span-8">

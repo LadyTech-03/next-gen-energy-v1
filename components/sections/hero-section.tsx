@@ -8,7 +8,7 @@ import { CountdownTimer } from "@/components/sections/countdown-timer";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import { trackEvent } from '@/lib/analytics'
+import { trackEvent } from '@/lib/analytics';
 
 type HeroSectionProps = {
   videoSrc?: string;
@@ -76,7 +76,9 @@ export function HeroSection({ videoSrc = "/videos/hero.mp4" }: HeroSectionProps)
                 buttonVariants({ size: "lg" }),
                 "bg-accent-yellow hover:bg-accent-yellow/90 h-10 px-5 font-semibold text-neutral-900",
               )}
-              onClick={() => { trackEvent('hero_register_click', { button: 'Register'}) }}
+              onClick={() => {
+                trackEvent("hero_register_click", { button: "Register" });
+              }}
             >
               Register Now
             </Link>
@@ -86,14 +88,21 @@ export function HeroSection({ videoSrc = "/videos/hero.mp4" }: HeroSectionProps)
                 buttonVariants({ size: "lg", variant: "outline" }),
                 "h-10 border-white/55 bg-transparent px-5 text-white hover:bg-white/10 hover:text-white",
               )}
-              onClick={() => { trackEvent('hero_learn_more_click', { button: 'Learn More'}) }}
+              onClick={() => {
+                trackEvent("hero_learn_more_click", { button: "Learn More" });
+              }}
             >
               Learn More
             </Link>
           </div>
 
-          <div className="flex justify-center">
-            <CountdownTimer />
+          <div className="space-y-3">
+            <div className="flex justify-center">
+              <CountdownTimer />
+            </div>
+            <p className="mx-auto inline-flex items-center rounded-md border border-emerald-300/35 bg-emerald-500/15 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-100 uppercase">
+              Registration Closed - 29 Mar 2026
+            </p>
           </div>
         </motion.div>
 

@@ -185,7 +185,7 @@ export function TimelineScrollSection({ year, phases }: TimelineScrollSectionPro
                         )}
                       >
                         <span
-                          className="bg-accent-yellow absolute top-6 left-[0.35rem] inline-flex size-2.5 rounded-full border border-white/30 md:left-1/2 md:-translate-x-1/2"
+                          className="bg-accent-yellow absolute top-6 left-[0.1rem] inline-flex size-2.5 rounded-full border border-white/30 md:left-1/2 md:-translate-x-1/2"
                           aria-hidden="true"
                         />
 
