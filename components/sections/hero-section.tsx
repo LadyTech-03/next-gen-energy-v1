@@ -100,7 +100,7 @@ export function HeroSection({ videoSrc = "/videos/hero.mp4" }: HeroSectionProps)
             <div className="flex justify-center">
               <CountdownTimer />
             </div>
-            <p className="mx-auto inline-flex items-center rounded-md border border-emerald-300/35 bg-emerald-500/15 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-100 uppercase">
+            <p className="mx-auto inline-flex items-center rounded-sm bg-white px-3 py-1 text-xs font-semibold tracking-wide uppercase text-primary">
               Registration Closed - 29 Mar 2026
             </p>
           </div>

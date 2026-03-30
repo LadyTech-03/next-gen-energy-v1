@@ -75,7 +75,7 @@ export function ThemesSection({ year = 2026, items }: ThemesSectionProps) {
                 trackEvent("themes_timeline_click", { button: "View Timeline" });
               }}
             >
-              View Timeline
+              View Challenge Timeline
             </Link>
           </div>
 
