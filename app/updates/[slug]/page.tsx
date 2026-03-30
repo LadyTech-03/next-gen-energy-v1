@@ -61,12 +61,12 @@ export default async function UpdateDetailsPage({ params }: UpdatePageProps) {
 
   return (
     <main className="bg-background min-h-screen">
-      <section className="border-border/60 border-b bg-white">
+      <section className="border-primary-700/60 from-primary-900 via-primary-700 to-primary-900 border-b bg-linear-to-b">
         <div className="mx-auto w-full max-w-5xl px-6 py-14 lg:py-18">
-          <nav aria-label="Breadcrumb" className="text-muted-foreground mb-5 text-sm">
+          <nav aria-label="Breadcrumb" className="text-white/70 mb-5 text-sm">
             <ol className="flex items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-foreground"
+                <Link href="/" className="hover:text-white"
                   // onClick={() => { trackEvent('update_breadcrumb_home_click', { button: 'Home' }) }}
                 >
                   Home
@@ -74,24 +74,24 @@ export default async function UpdateDetailsPage({ params }: UpdatePageProps) {
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <Link href="/updates" className="hover:text-foreground"
+                <Link href="/updates" className="hover:text-white"
                   // onClick={() => { trackEvent('update_breadcrumb_updates_click', { button: 'Updates' }) }}
                 >
                   Updates
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-foreground line-clamp-1">{update.title}</li>
+              <li className="text-white line-clamp-1">{update.title}</li>
             </ol>
           </nav>
 
           <p className="text-primary-700 text-xs font-medium tracking-wide uppercase">
             {formatDate(update.date)}
           </p>
-          <h1 className="text-primary-900 mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="text-white mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
             {update.title}
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-slate-700">{update.excerpt}</p>
+          <p className="mt-4 text-base leading-relaxed text-slate-300">{update.excerpt}</p>
         </div>
       </section>
 

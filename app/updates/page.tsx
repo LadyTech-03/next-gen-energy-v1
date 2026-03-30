@@ -26,18 +26,18 @@ export default function UpdatesPage() {
   const updates = getChallengeUpdates(2026);
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className="bg-background min-h-screen text-white">
       <section className="border-primary-700/60 from-primary-900 via-primary-700 to-primary-900 border-b bg-linear-to-b">
         <div className="mx-auto w-full max-w-7xl px-6 py-14 lg:py-18">
-          <nav aria-label="Breadcrumb" className="text-muted-foreground mb-5 text-sm">
+          <nav aria-label="Breadcrumb" className="text-white/70 mb-5 text-sm">
             <ol className="flex items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-foreground">
+                <Link href="/" className="hover:text-white">
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-foreground">Updates</li>
+              <li className="text-white">Updates</li>
             </ol>
           </nav>
 
@@ -45,6 +45,7 @@ export default function UpdatesPage() {
             title="Challenge Updates"
             description=""
             width="compact"
+            tone="inverted"
           />
         </div>
       </section>
