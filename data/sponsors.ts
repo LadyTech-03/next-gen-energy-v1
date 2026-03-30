@@ -58,6 +58,14 @@ const defaultSponsors2026: SponsorItem[] = [
     height: 154,
     website: "https://petrol.knust.edu.gh",
   },
+  {
+    id: "shell",
+    name: "Shell",
+    logo: "/images/shell.svg",
+    width: 320,
+    height: 154,
+    website: "https://www.shell.com",
+  },
 ];
 
 export const challengeSponsorsByYear: Record<number, SponsorItem[]> = {
