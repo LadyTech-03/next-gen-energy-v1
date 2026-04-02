@@ -273,11 +273,6 @@ function build503Html(requestPath: string): string {
 <body>
   <div class="page">
 
-    // <div class="status-pill">
-    //   <span class="dot"></span>
-    //   Service Unavailable
-    // </div>
-
     <div class="code">5<span>0</span>3</div>
 
     <div class="divider"></div>
