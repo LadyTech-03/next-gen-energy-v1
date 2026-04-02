@@ -28,208 +28,297 @@ function build503Html(requestPath: string): string {
   const safePath = escapeHtml(requestPath || "/");
   const generatedAt = new Date().toUTCString();
 
-  return `<!doctype html>
+  return `<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>503 Service Unavailable</title>
-    <meta name="robots" content="noindex, nofollow" />
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f7f9fc;
-        --fg: #0f172a;
-        --muted: #475569;
-        --brand: #0a2a66;
-        --accent: #f4b400;
-        --surface: #ffffff;
-        --border: #d7dfeb;
-        --danger: #b91c1c;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>503 — Service Unavailable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      * {
-        box-sizing: border-box;
-      }
+    :root {
+      --bg: #0b0c0f;
+      --surface: #13151a;
+      --border: #1f2229;
+      --accent: #e8c547;
+      --accent-dim: rgba(232, 197, 71, 0.12);
+      --text-primary: #f0efe8;
+      --text-muted: #5a5f6e;
+      --text-dim: #3a3f4d;
+      --red: #e05252;
+    }
 
-      body {
-        margin: 0;
-        font-family: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-        background:
-          radial-gradient(circle at 20% -10%, rgba(30, 103, 216, 0.15), transparent 48%),
-          radial-gradient(circle at 85% 5%, rgba(244, 180, 0, 0.2), transparent 42%),
-          var(--bg);
-        color: var(--fg);
-      }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Mono', monospace;
+      overflow: hidden;
+    }
 
-      main {
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 1.5rem;
-      }
+    /* Subtle grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-      .panel {
-        width: min(44rem, 100%);
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 1rem;
-        box-shadow: 0 20px 40px -24px rgba(15, 23, 42, 0.45);
-        overflow: hidden;
-      }
+    /* Radial glow behind content */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(232,197,71,0.055) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-      .header {
-        border-bottom: 1px solid var(--border);
-        background: linear-gradient(145deg, rgba(10, 42, 102, 0.06), rgba(244, 180, 0, 0.13));
-        padding: 1.5rem;
-      }
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 0;
+    }
 
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(185, 28, 28, 0.1);
-        border: 1px solid rgba(185, 28, 28, 0.25);
-        color: var(--danger);
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        border-radius: 999px;
-        padding: 0.35rem 0.75rem;
-        text-transform: uppercase;
-      }
+    /* Status pill */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px 6px 10px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      animation: fadeSlideIn 0.6s ease both;
+    }
 
-      h1 {
-        margin: 0.9rem 0 0.25rem;
-        font-size: clamp(1.55rem, 4vw, 2.1rem);
-        line-height: 1.2;
-        color: var(--brand);
-      }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 6px var(--red);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
 
-      .subtitle {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.5;
-      }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.8); }
+    }
 
-      .content {
-        padding: 1.35rem 1.5rem 1.5rem;
-      }
+    /* Big 503 */
+    .code {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(96px, 18vw, 180px);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      animation: fadeSlideIn 0.7s 0.1s ease both;
+      position: relative;
+    }
 
-      .status-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
-        gap: 0.75rem;
-        margin: 0 0 1rem;
-      }
+    .code span {
+      color: var(--accent);
+    }
 
-      .status-box {
-        background: #f8fbff;
-        border: 1px solid var(--border);
-        border-radius: 0.75rem;
-        padding: 0.75rem;
-      }
+    /* Divider line */
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--border);
+      margin: 2rem 0;
+      animation: fadeSlideIn 0.7s 0.2s ease both;
+    }
 
-      .label {
-        margin: 0;
-        font-size: 0.73rem;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        color: var(--muted);
-      }
+    /* Heading */
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(20px, 3vw, 28px);
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: 1rem;
+      animation: fadeSlideIn 0.7s 0.25s ease both;
+    }
 
-      .value {
-        margin: 0.35rem 0 0;
-        font-size: 0.96rem;
-        font-weight: 700;
-        color: var(--fg);
-        word-break: break-word;
-      }
+    p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 380px;
+      animation: fadeSlideIn 0.7s 0.35s ease both;
+    }
 
-      .callout {
-        margin: 0;
-        padding: 0.9rem 1rem;
-        border-radius: 0.75rem;
-        border: 1px solid rgba(10, 42, 102, 0.18);
-        background: rgba(10, 42, 102, 0.04);
-        color: var(--fg);
-        line-height: 1.55;
-      }
+    /* Info card */
+    .info-card {
+      margin-top: 2.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      animation: fadeSlideIn 0.7s 0.45s ease both;
+    }
 
-      .actions {
-        margin-top: 1rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.65rem;
-      }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+    }
 
-      .btn {
-        border-radius: 0.7rem;
-        font-size: 0.9rem;
-        font-weight: 700;
-        text-decoration: none;
-        border: 1px solid transparent;
-        padding: 0.6rem 0.9rem;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
+    .info-row .label {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
 
-      .btn-primary {
-        background: var(--brand);
-        color: #f8fbff;
-      }
+    .info-row .value {
+      color: var(--text-muted);
+    }
 
-      .btn-secondary {
-        border-color: var(--border);
-        color: var(--fg);
-        background: #fff;
-      }
+    .info-row .value.red { color: var(--red); }
+    .info-row .value.yellow { color: var(--accent); }
 
-      .btn:hover {
-        transform: translateY(-1px);
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section class="panel" aria-labelledby="page-title">
-        <header class="header">
-          <p class="badge">HTTP 503 Service Unavailable</p>
-          <h1 id="page-title">Service Temporarily Suspended</h1>
-          <p class="subtitle">
-            This site is currently in billing-hold mode due to an unpaid balance.
-            Public access will be restored as soon as payment is cleared.
-          </p>
-        </header>
+    .info-divider {
+      height: 1px;
+      background: var(--border);
+    }
 
-        <div class="content">
-          <div class="status-grid" role="list">
-            <article class="status-box" role="listitem">
-              <p class="label">Incident</p>
-              <p class="value">BILLING-HOLD</p>
-            </article>
-            <article class="status-box" role="listitem">
-              <p class="label">Requested Path</p>
-              <p class="value">${safePath}</p>
-            </article>
-            <article class="status-box" role="listitem">
-              <p class="label">Generated At</p>
-              <p class="value">${generatedAt}</p>
-            </article>
-          </div>
+    /* Retry button */
+    .btn {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(232, 197, 71, 0.3);
+      color: var(--accent);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      animation: fadeSlideIn 0.7s 0.55s ease both;
+    }
 
-          <p class="callout">
-            If this is unexpected, contact the site administrator or billing owner and request
-            immediate invoice settlement. Access remains blocked until the account returns to good standing.
-          </p>
+    .btn:hover {
+      background: rgba(232, 197, 71, 0.18);
+      border-color: rgba(232, 197, 71, 0.5);
+      transform: translateY(-1px);
+    }
 
-          <div class="actions">
-            <a class="btn btn-primary" href="${safePath}">Retry</a>
-            <a class="btn btn-secondary" href="mailto:billing@nextgen-energy.local">Contact Billing</a>
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
+    .btn svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+      animation: fadeSlideIn 0.7s 0.65s ease both;
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    // <div class="status-pill">
+    //   <span class="dot"></span>
+    //   Service Unavailable
+    // </div>
+
+    <div class="code">5<span>0</span>3</div>
+
+    <div class="divider"></div>
+
+    <p>This page can not be accessed due to some technical issues.</p>
+
+    <div class="info-card">
+      <div class="info-row">
+        <span class="label">Status</span>
+        <span class="value red">● Unavailable</span>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-row">
+        <span class="label">Error</span>
+        <span class="value">503 Service Unavailable</span>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-row">
+        <span class="label">Timestamp</span>
+        <span class="value" id="ts">—</span>
+      </div>
+    </div>
+
+    <a href="javascript:location.reload()" class="btn">
+      <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      Retry Request
+    </a>
+
+  </div>
+
+  <footer>
+    If the issue persists, please contact support.
+  </footer>
+
+  <script>
+    // Live timestamp
+    const ts = document.getElementById('ts');
+    const fmt = d => d.toISOString().replace('T',' ').slice(0,19) + ' UTC';
+    ts.textContent = fmt(new Date());
+  </script>
+</body>
 </html>`;
 }
 
