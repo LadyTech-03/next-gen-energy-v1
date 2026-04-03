@@ -25,15 +25,15 @@ function escapeHtml(value: string): string {
 }
 
 function build503Html(requestPath: string): string {
-  const safePath = escapeHtml(requestPath || "/");
-  const generatedAt = new Date().toUTCString();
+  // const safePath = escapeHtml(requestPath || "/");
+  // const generatedAt = new Date().toUTCString();
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>503 — Service Unavailable</title>
+  <title>503 - Service Unavailable</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -298,7 +298,7 @@ function build503Html(requestPath: string): string {
 
     <a href="javascript:location.reload()" class="btn">
       <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-      Retry Request
+      Reload
     </a>
 
   </div>
